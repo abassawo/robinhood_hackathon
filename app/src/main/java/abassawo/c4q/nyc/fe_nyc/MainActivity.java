@@ -39,8 +39,9 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    DrawerLayout mDrawerList;
     private CharSequence mTitle;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +50,19 @@ public class MainActivity extends AppCompatActivity {
 
 //        mTitle = getTitle();
 
-
-//        setSupportActionBar(mToolbar);
-//        final ActionBar actionBar = getSupportActionBar();
-        //actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
-       // actionBar.setDisplayHomeAsUpEnabled(true);
-
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.main_container, new LoginFragment())
+                .addToBackStack(null) //allows user to press back button and return to previous fragment
+                .commit();
 
     }
+
 
 
     public void onNavigationDrawerItemSelected(int position) {
