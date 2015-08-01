@@ -1,5 +1,6 @@
 package abassawo.c4q.nyc.fe_nyc;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -38,22 +39,34 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActionBarActivity {
+   // @Bind (R.id.toolbar) Toolbar mToolbar;
     DrawerLayout mDrawerList;
     private CharSequence mTitle;
     private Toolbar mToolbar;
+    NavigationView navigationView;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mDrawerList = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
 
 //        mTitle = getTitle();
-
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        if (navigationView != null) {
+            setupDrawerContent(navigationView);
+        }
+//
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(mToolbar);
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        actionBar.setTitle(getString(R.string.app_name));
+        actionBar.setLogo(R.drawable.fe_nyc_logo);
         actionBar.setDisplayHomeAsUpEnabled(true);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
@@ -62,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
 
     }
-
 
 
     public void onNavigationDrawerItemSelected(int position) {
@@ -80,11 +92,9 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new BudgetViewFragment();
                 break;
 
-
-
         }
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.main_container, fragment)
                 .addToBackStack(null) //allows user to press back button and return to previous fragment
@@ -115,19 +125,50 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setTitle(mTitle);
     }
 
+    private void setupDrawerContent(NavigationView navigationView) {
+        fragmentManager = getSupportFragmentManager();
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        menuItem.setChecked(true);
+                        if (menuItem.getItemId() == R.id.nav_budget){
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.main_container, new BudgetViewFragment())//allows user to press back button and return to previous fragment
+                                    .commit();
+                        } else if(menuItem.getItemId() == R.id.nav_expense){
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.main_container, new ExpenseFragment())
+                                //allows user to press back button and return to previous fragment
+                                    .commit();
+                        } else if(menuItem.getItemId() == R.id.nav_resurces){
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.main_container, new ResourcesFragment())//allows user to press back button and return to previous fragment
+                                    .commit();
+                        } else if((menuItem.getItemId() == R.id.nav_settings)){
+                            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                            startActivity(intent);
+                        }
+                        mDrawerList.closeDrawers();
+                        return true;
+                    }
+                });
+    }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-//            // Only show items in the action bar relevant to this screen
-//            // if the drawer is not showing. Otherwise, let the drawer
-//            // decide what to show in the action bar.
-//            getMenuInflater().inflate(R.menu.astro_scoop, menu);
-//            restoreActionBar();
-//            return true;
-//        }
-//        return super.onCreateOptionsMenu(menu);
-//    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+            // Only show items in the action bar relevant to this screen
+            // if the drawer is not showing. Otherwise, let the drawer
+            // decide what to show in the action bar.
+            //getMenuInflater().inflate(R.menu.drawer_view, menu);
+            restoreActionBar();
+
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -138,6 +179,12 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        } else if (id == R.id.nav_expense){
+            fragmentManager.beginTransaction()
+                    .add(R.id.main_container, new LoginFragment())
+                    .addToBackStack(null) //allows user to press back button and return to previous fragment
+                    .commit();
             return true;
         }
 
@@ -169,12 +216,12 @@ public class MainActivity extends AppCompatActivity {
         public PlaceholderFragment() {
         }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_main, container, false);
-            return rootView;
-        }
+//        @Override
+//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                                 Bundle savedInstanceState) {
+//            View rootView = inflater.inflate(R.layout.activity_main, container, false);
+//            return rootView;
+//        }
 
         @Override
         public void onAttach(Activity activity) {

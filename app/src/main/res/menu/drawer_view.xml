@@ -6,15 +6,15 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_expense"
             android:icon="@drawable/moneytrees"
             android:title="Daily Expense Tracker" />
         <item
-            android:id="@+id/nav_messages"
+            android:id="@+id/nav_resurces"
             android:icon="@drawable/moneytrees"
             android:title="Additional Resources" />
         <item
-            android:id="@+id/nav_friends"
+            android:id="@+id/nav_budget"
             android:icon="@drawable/moneytrees"
             android:title="Budget" />
     </group>
@@ -22,9 +22,11 @@
     <item android:title="Manage Account">
         <menu>
             <item
+                android:id="@+id/nav_settings"
                 android:icon="@drawable/moneytrees"
                 android:title="Settings" />
             <item
+                android:id="@+id/nav_logout"
                 android:icon="@drawable/moneytrees"
                 android:title="Log out" />
         </menu>
