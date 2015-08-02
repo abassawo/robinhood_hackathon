@@ -28,4 +28,5 @@
     <string name="cash_amount">$175</string>
     <string name="minus_text">Subtract from Wallet</string>
     <string name="add_text">Add to Wallet</string>
+    <string name="log_out">Log Out</string>
 </resources>
