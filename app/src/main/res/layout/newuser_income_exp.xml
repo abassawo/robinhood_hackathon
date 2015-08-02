@@ -1,0 +1,296 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" tools:context=".MainActivity"
+                >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:id="@+id/title"
+        android:text="@string/title"
+        android:textColor="#000000"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="2dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        android:textSize="16sp"
+        android:id="@+id/instructions"
+        android:layout_below="@+id/title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rent_title"
+        android:id="@+id/rent_title"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:layout_above="@+id/rent_value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="6"
+        android:textSize="20sp"
+        android:id="@+id/rent_value"
+        android:background="#808080"
+        android:layout_above="@+id/util_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Utilities"
+        android:id="@+id/util_title"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:layout_above="@+id/util_value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="6"
+        android:textSize="20sp"
+        android:id="@+id/util_value"
+        android:background="#808080"
+        android:layout_above="@+id/food_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/food_title"
+        android:id="@+id/food_title"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:layout_above="@+id/food_value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="6"
+        android:textSize="20sp"
+        android:id="@+id/food_value"
+        android:background="#808080"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/misc_title"
+        android:id="@+id/misc_title"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:layout_below="@+id/food_value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="6"
+        android:textSize="20sp"
+        android:id="@+id/misc_value"
+        android:background="#808080"
+        android:layout_below="@+id/misc_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_button"
+        android:id="@+id/next_button"
+        android:layout_below="@+id/goal_text"
+        android:layout_alignLeft="@+id/calcbutton"
+        android:layout_alignStart="@+id/calcbutton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/question"
+        android:id="@+id/goal"
+        android:textSize="20sp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/calcbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/goal_text"
+        android:layout_below="@+id/goal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/instructions"
+        android:layout_alignEnd="@+id/instructions"
+        android:paddingTop="-20dp"
+        android:paddingBottom="-20dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/income_title"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:layout_above="@+id/income_value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/work_income"
+        android:paddingBottom="5dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="6"
+        android:textSize="20sp"
+        android:id="@+id/income_value"
+        android:background="#808080"
+        android:layout_above="@+id/rent_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_expenses"
+        android:id="@+id/total_expenses"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="16sp"
+        android:layout_alignTop="@+id/income_title"
+        android:layout_alignLeft="@+id/expense_val"
+        android:layout_alignStart="@+id/expense_val"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/expense_val"
+        android:layout_below="@+id/total_expenses"
+        android:layout_toRightOf="@+id/goal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/earnings_title"
+        android:id="@+id/earnings_title"
+        android:layout_below="@+id/expense_val"
+        android:layout_toRightOf="@+id/goal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/earnings_value"
+        android:layout_below="@+id/earnings_title"
+        android:layout_toRightOf="@+id/goal"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_balance"
+        android:id="@+id/total_balance"
+        android:layout_alignBaseline="@+id/food_title"
+        android:layout_alignBottom="@+id/food_title"
+        android:layout_alignLeft="@+id/earnings_value"
+        android:layout_alignStart="@+id/earnings_value"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/remaining_bal_value"
+        android:layout_below="@+id/total_balance"
+        android:layout_toRightOf="@+id/goal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/goal_amount"
+        android:id="@+id/textView"
+        android:paddingBottom="10dp"
+        android:paddingTop="-10dp"
+        android:layout_alignTop="@+id/submit_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="calculate"
+        android:id="@+id/calcbutton"
+        android:layout_below="@+id/misc_value"
+        android:layout_alignRight="@+id/goal_text"
+        android:layout_alignEnd="@+id/goal_text"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="5"
+        android:id="@+id/goal_amount"
+        android:layout_alignTop="@+id/textView"
+        android:layout_toRightOf="@+id/income_title"
+        android:layout_toEndOf="@+id/income_title"/>
+
+
+</RelativeLayout>
