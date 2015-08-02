@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:id="@+id/nav_header_Frame"
     android:layout_height="178dp"
-    android:background="@drawable/fe_nyc_logo"
+    android:background="@drawable/moneytrees"
     android:orientation="vertical"
     android:weightSum="1">
 

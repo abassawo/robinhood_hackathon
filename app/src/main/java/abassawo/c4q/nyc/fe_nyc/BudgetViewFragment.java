@@ -4,10 +4,34 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 
+
+import android.support.v4.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link BudgetViewFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link BudgetViewFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+
+import android.app.Activity;
+import android.net.Uri;
+import android.os.Bundle;
+
+
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+
 
 
 /**
@@ -24,10 +48,10 @@ public class BudgetViewFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
 
 
     /**
@@ -48,9 +72,11 @@ public class BudgetViewFragment extends Fragment {
         return fragment;
     }
 
+
     public BudgetViewFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,15 +87,12 @@ public class BudgetViewFragment extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_budget_view, container, false);
     }
-
-
-
-
 
 }
