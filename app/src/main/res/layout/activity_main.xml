@@ -25,6 +25,12 @@
         android:id="@+id/main_container">
     </FrameLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_container">
+    </FrameLayout>
+
 
     </RelativeLayout>
     <android.support.design.widget.NavigationView

@@ -33,11 +33,6 @@ public class ResourcesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
-
-
-
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -78,7 +73,6 @@ public class ResourcesFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_resources, container, false);
     }
-
 
 
 
