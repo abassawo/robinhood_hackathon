@@ -1,6 +1,22 @@
 <resources>
     <string name="app_name">Fe_NYC</string>
+    <string name="action_settings">Settings</string>
+    <string name="SelectLanguage">Please Select Language</string>
+    <string name="languages">Select Language</string>
+    <string name="Submit">Submit</string>
+
+    <string-array name="language">
+        <item>English</item>
+        <item>Español</item>
+        <item>中文</item>
+    </string-array>
+    <string name="title_activity_create_account">CreateAccount</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="username">Username</string>
+    <string name="name">Name</string>
+    <string name="success">Success!</string>
+    <string name="pwnotmatch">Password does not match.</string>
+    <string name="enterpw">Enter Password</string>
+    <string name="confpw">Confirm Password</string>
 </resources>

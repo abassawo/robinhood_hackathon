@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:orientation="vertical"
+                tools:context="abassawo.c4q.nyc.fe_nyc.CreateAccount">
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:id="@+id/clientnameinput"
+        android:text="@string/name"/>
+
+    <EditText
+        android:id="@+id/clientName"
+        android:textSize="20sp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/usernameinput"
+        android:text="@string/username"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/userName"
+        android:textSize="20sp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_gravity="center"/>
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/passwordinput"
+        android:text="@string/enterpw"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:textSize="20sp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/confirmpasswordinput"
+        android:textSize="20sp"
+        android:text="@string/confpw"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="@string/Submit"
+        android:id="@+id/register"/>
+
+
+</LinearLayout>
