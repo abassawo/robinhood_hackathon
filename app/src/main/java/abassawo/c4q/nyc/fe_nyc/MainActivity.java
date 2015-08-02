@@ -41,13 +41,14 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
 
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
-    @Bind(R.id.toolbar) Toolbar mToolbar;
+  
 
 
     private CharSequence mTitle;
@@ -129,10 +130,6 @@ public class MainActivity extends AppCompatActivity {
                                     .commit();
                         } else if(menuItem.getItemId() == R.id.nav_expense){
                             fragmentManager.beginTransaction()
-
-                                    .replace(R.id.main_container, new ExpenseFragment())
-                                            //allows user to press back button and return to previous fragment
-
                                     .replace(R.id.main_container, new WalletFragment())
                                 //allows user to press back button and return to previous fragment
 

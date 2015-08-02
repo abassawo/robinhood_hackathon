@@ -45,15 +45,17 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class BudgetViewFragment extends Fragment {
+    private String mParam1;
+    private String mParam2;
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+        // TODO: Rename and change types of parameters
+
         final View myInflatedView = inflater.inflate(R.layout.fragment_wallet, container, false);
 
         return myInflatedView;
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -66,10 +68,8 @@ public class BudgetViewFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static BudgetViewFragment newInstance(String param1, String param2) {
         BudgetViewFragment fragment = new BudgetViewFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+//        Bundle args = new Bundle();
+//        fragment.setArguments(args);
         return fragment;
     }
 
@@ -82,20 +82,12 @@ public class BudgetViewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
     }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_budget_view, container, false);
-    }
 
 }
-    }
-}
+
+
