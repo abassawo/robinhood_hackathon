@@ -1,5 +1,6 @@
 package abassawo.c4q.nyc.fe_nyc;
 
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
+import android.view.View;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
     private CharSequence mTitle;
     NavigationView navigationView;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     private FragmentManager fragmentManager;
 
@@ -30,8 +34,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        mTitle = getTitle();
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.app_name, R.string.app_name) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
 
-//        mTitle = getTitle();
+                invalidateOptionsMenu();
+            }
+        };
+
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null) {
             setupDrawerContent(navigationView);
@@ -115,7 +128,9 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
         if (id == R.id.action_log_out) {
             return true;
         }
