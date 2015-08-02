@@ -26,4 +26,5 @@
     <string name="Budget">Budget</string>
     <string name="Expenses">Expenses</string>
     <string name="Available_Programs">Available Programs</string>
+    <string name="title_activity_resource">ResourceActivity</string>
 </resources>
