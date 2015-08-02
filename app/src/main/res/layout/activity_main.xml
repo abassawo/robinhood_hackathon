@@ -7,23 +7,16 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:fitsSystemWindows="true">
-    <include layout="@layout/toolbarlayout"/>
+
 
     <RelativeLayout
         android:padding="40dp"
-        android:paddingBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
 
 
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/main_container">
-    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"

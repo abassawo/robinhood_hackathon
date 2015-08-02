@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context="abassawo.c4q.nyc.fe_nyc.WalletFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/monthly_wallet_fragment"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:textColor="#000000"
+        android:paddingTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cash_amount"
+        android:textSize="20sp"
+        android:paddingBottom="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/wallet_money"/>
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:id="@+id/tree"
+        android:background="@drawable/tree_full"
+        android:paddingBottom="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="20dp">
+
+        <Button
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:layout_marginRight="5dp"
+            android:text="@string/add_text"
+            android:id="@+id/add_button"
+            android:background="@drawable/custom_button"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="@string/minus_text"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/minus_button"
+            android:background="@drawable/custom_button"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="Enter amount"
+            android:id="@+id/enter_amount"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:singleLine="true"
+            android:imeOptions="actionDone"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="calculate"
+            android:id="@+id/calculate"
+            android:visibility="gone"
+            android:background="@drawable/custom_button"
+            android:textAllCaps="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/low_cash"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#FF0000"
+        android:padding="20dp"
+        android:visibility="gone"
+        android:id="@+id/warning"/>
+
+
+</LinearLayout>
+

@@ -1,5 +1,21 @@
 package abassawo.c4q.nyc.fe_nyc;
 
+import android.support.v7.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+
+
+
+
 
 
 import android.app.Activity;
@@ -24,6 +40,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -31,7 +48,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
-    @Bind(R.id.toolbar) Toolbar mToolbar;
+  
 
 
     private CharSequence mTitle;
@@ -81,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position) {
             case 0:
-                fragment = new ExpenseFragment();
+                fragment = new WalletFragment();
                 break;
             case 1:
                 fragment = new ResourcesFragment();
@@ -113,8 +130,9 @@ public class MainActivity extends AppCompatActivity {
                                     .commit();
                         } else if(menuItem.getItemId() == R.id.nav_expense){
                             fragmentManager.beginTransaction()
-                                    .replace(R.id.main_container, new ExpenseFragment())
-                                            //allows user to press back button and return to previous fragment
+                                    .replace(R.id.main_container, new WalletFragment())
+                                //allows user to press back button and return to previous fragment
+
                                     .commit();
                         } else if(menuItem.getItemId() == R.id.nav_resurces){
                             fragmentManager.beginTransaction()
