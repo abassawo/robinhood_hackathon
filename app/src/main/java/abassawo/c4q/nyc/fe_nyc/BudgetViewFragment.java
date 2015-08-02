@@ -1,10 +1,12 @@
 
 package abassawo.c4q.nyc.fe_nyc;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,82 +14,63 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import org.achartengine.ChartFactory;
+import org.achartengine.GraphicalView;
+import org.achartengine.model.CategorySeries;
+import org.achartengine.model.SeriesSelection;
+import org.achartengine.renderer.DefaultRenderer;
+import org.achartengine.renderer.SimpleSeriesRenderer;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link BudgetViewFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link BudgetViewFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-
-import android.app.Activity;
-import android.net.Uri;
-import android.os.Bundle;
-
-
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-
-
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link BudgetViewFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link BudgetViewFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BudgetViewFragment extends Fragment {
-    private String mParam1;
-    private String mParam2;
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public WebView webView;
+    public ImageView goalImage;
 
 
-        // TODO: Rename and change types of parameters
+    @SuppressLint("SetJavaScriptEnabled")
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        final View myInflatedView = inflater.inflate(R.layout.fragment_budget_view, container, false);
 
-        final View myInflatedView = inflater.inflate(R.layout.fragment_wallet, container, false);
+        goalImage = (ImageView)myInflatedView.findViewById(R.id.goal);
+        goalImage.setBackgroundResource(R.drawable.goal_animation);
+        AnimationDrawable frameAnimation = (AnimationDrawable) goalImage.getBackground();
+        frameAnimation.start();
+
+        webView = (WebView) myInflatedView.findViewById(R.id.web);
+        webView.addJavascriptInterface(new WebAppInterface(), "Android");
+
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("file:///android_asset/chart.html");
 
         return myInflatedView;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BudgetViewFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BudgetViewFragment newInstance(String param1, String param2) {
-        BudgetViewFragment fragment = new BudgetViewFragment();
-//        Bundle args = new Bundle();
-//        fragment.setArguments(args);
-        return fragment;
-    }
 
+    public class WebAppInterface {
 
-    public BudgetViewFragment() {
-        // Required empty public constructor
-    }
+        @JavascriptInterface
+        public int getNum1() {
+            return 320;
+        }
 
+        @JavascriptInterface
+        public int getNum2() {
+            return 1285;
+        }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+        @JavascriptInterface
+        public int getNum3() {
+            return 115;
+        }
 
     }
-
-
-
 }
-
 
