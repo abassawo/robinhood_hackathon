@@ -1,3 +1,4 @@
+
 package abassawo.c4q.nyc.fe_nyc;
 
 import android.app.Activity;
@@ -5,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -43,16 +45,15 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class BudgetViewFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+        final View myInflatedView = inflater.inflate(R.layout.fragment_wallet, container, false);
 
+        return myInflatedView;
 
     /**
      * Use this factory method to create a new instance of
@@ -95,4 +96,6 @@ public class BudgetViewFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_budget_view, container, false);
     }
 
+}
+    }
 }

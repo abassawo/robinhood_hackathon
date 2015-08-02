@@ -37,15 +37,6 @@
 
 
 
-
-
-
-        <activity
-            android:name=".LoginFragment"
-            android:label="@string/title_activity_login"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
-
     </application>
 
 </manifest>
