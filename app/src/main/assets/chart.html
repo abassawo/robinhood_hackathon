@@ -21,16 +21,15 @@
       data.addColumn('string', 'ITEM');
       data.addColumn('number', 'VALUE');
       data.addRows([
-        ['Income', 1800],
         ['Savings', 320],
         ['Expenses', 1285],
-        ['Wallet', 115]
+        ['Spending Money', 115]
       ]);
 
       // Set chart options
       var options = {'title':'',
                      'width':400,
-                     'height':400};
+                     'height':280};
 
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -41,6 +40,6 @@
 
 <body>
 <!--Div that will hold the pie chart-->
-<div id="chart_div" style="width:400; height:400"></div>
+<div id="chart_div" style="width:400; height:280; margin:0"></div>
 </body>
 </html>

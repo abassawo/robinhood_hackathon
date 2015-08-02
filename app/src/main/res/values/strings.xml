@@ -21,7 +21,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="budget_display_title">Your Recommended Monthly Savings: $320</string>
+
 
     <!-- String related to Wallet Fragment -->
     <string name="low_cash">Your spending cash is low, click on resources tab to learn money saving opportunities</string>
@@ -29,4 +29,10 @@
     <string name="cash_amount">$175</string>
     <string name="minus_text">Subtract from Wallet</string>
     <string name="add_text">Add to Wallet</string>
+
+    <!-- String related to Budget Display Fragment -->
+    <string name="goal_progress">Your Goal Progress: 0%</string>
+    <string name="you_are_here">You Are Here</string>
+    <string name="budget_display_title">Your Recommended Monthly Savings: $320</string>
+
 </resources>

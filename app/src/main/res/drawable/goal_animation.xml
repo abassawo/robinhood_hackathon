@@ -1,0 +1,10 @@
+<animation-list
+    android:id="@+id/selected"
+    android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/a_new_car_1" android:duration="300" />
+    <item android:drawable="@drawable/a_new_car_2" android:duration="300" />
+    <item android:drawable="@drawable/a_new_car_3" android:duration="300" />
+    <item android:drawable="@drawable/a_new_car_4" android:duration="300" />
+
+</animation-list>
