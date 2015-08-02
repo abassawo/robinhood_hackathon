@@ -8,4 +8,8 @@ public class BudgetCalculator {
     private int spendable;
     private int currentSavings;
     private int income;
+
+    public BudgetCalculator(double income){
+
+    }
 }

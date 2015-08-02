@@ -1,3 +1,4 @@
+
 package abassawo.c4q.nyc.fe_nyc;
 
 import android.annotation.SuppressLint;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +43,23 @@ public class BudgetViewFragment extends Fragment {
         webView.loadUrl("file:///android_asset/chart.html");
 
         return myInflatedView;
-    }
+ * Activities that contain this fragment must implement the
+ * {@link BudgetViewFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link BudgetViewFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+
+import android.app.Activity;
+import android.net.Uri;
+import android.os.Bundle;
+
+
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 
     public class WebAppInterface {
 
@@ -71,4 +89,3 @@ public class BudgetViewFragment extends Fragment {
         }
     }
 
-}
