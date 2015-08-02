@@ -35,4 +35,5 @@
     <string name="you_are_here">You Are Here</string>
     <string name="budget_display_title">Your Recommended Monthly Savings: $320</string>
 
+    <string name="log_out">Log Out</string>
 </resources>

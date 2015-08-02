@@ -1,5 +1,6 @@
 package abassawo.c4q.nyc.fe_nyc;
 
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
+import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -18,11 +20,9 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
-  
-
-
     private CharSequence mTitle;
     NavigationView navigationView;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     private FragmentManager fragmentManager;
 
@@ -30,25 +30,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ButterKnife.bind(this);
+        mTitle = getTitle();
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.app_name, R.string.app_name) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
 
-//        mTitle = getTitle();
+                invalidateOptionsMenu();
+            }
+        };
+
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null) {
             setupDrawerContent(navigationView);
         }
-//
-//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(mToolbar);
+
         final ActionBar actionBar = getSupportActionBar();
-
-
         actionBar.isHideOnContentScrollEnabled();
-
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionBar.setTitle(getString(R.string.app_name));
         actionBar.setLogo(R.drawable.fe_nyc_logo);
+        actionBar.setIcon(R.drawable.fe_nyc_logo);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
@@ -62,31 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void onNavigationDrawerItemSelected(int position) {
-
-        Fragment fragment = null;
-
-        switch (position) {
-            case 0:
-                fragment = new WalletFragment();
-                break;
-            case 1:
-                fragment = new ResourcesFragment();
-                break;
-            case 2:
-                fragment = new BudgetViewFragment();
-                break;
-
-        }
-        // update the main content by replacing fragments
-        fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.main_container, fragment)
-                .addToBackStack(null) //allows user to press back button and return to previous fragment
-                .commit();
-    }
-
-
     private void setupDrawerContent(NavigationView navigationView) {
         fragmentManager = getSupportFragmentManager();
         navigationView.setNavigationItemSelectedListener(
@@ -94,17 +73,17 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
-                        if (menuItem.getItemId() == R.id.nav_budget){
+                        if (menuItem.getItemId() == R.id.nav_wallet){
                             fragmentManager.beginTransaction()
-                                    .replace(R.id.main_container, new BudgetViewFragment())//allows user to press back button and return to previous fragment
+                                    .replace(R.id.main_container, new WalletFragment())//allows user to press back button and return to previous fragment
                                     .commit();
                         } else if(menuItem.getItemId() == R.id.nav_expense){
                             fragmentManager.beginTransaction()
-                                    .replace(R.id.main_container, new WalletFragment())
+                                    .replace(R.id.main_container, new ExpenseFragment())
                                 //allows user to press back button and return to previous fragment
 
                                     .commit();
-                        } else if(menuItem.getItemId() == R.id.nav_resurces){
+                        } else if(menuItem.getItemId() == R.id.nav_resources){
                             fragmentManager.beginTransaction()
                                     .replace(R.id.main_container, new ResourcesFragment())//allows user to press back button and return to previous fragment
                                     .commit();
@@ -118,23 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 4:
-                mTitle = ("Expenses");
-                break;
-            case 2:
-                mTitle =  ("Budget");
-                break;
-            case 3:
-                mTitle = ("Settings");
-                break;
-            case 1:
-                mTitle = ("Resources");
-                break;
-        }
-    }
 
 
     public void restoreActionBar() {
@@ -163,18 +125,31 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
-        } else if (id == R.id.nav_expense){
-            fragmentManager.beginTransaction()
-                    .add(R.id.main_container, new LoginFragment())
-                    .addToBackStack(null) //allows user to press back button and return to previous fragment
-                    .commit();
+        }
+        if (id == R.id.action_log_out) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSectionAttached(int number) {
+        switch (number) {
+            case 4:
+                mTitle = ("Expenses");
+                break;
+            case 2:
+                mTitle =  ("Budget");
+                break;
+            case 3:
+                mTitle = ("Settings");
+                break;
+            case 1:
+                mTitle = ("Resources");
+                break;
+        }
     }
 
     /**
