@@ -1,6 +1,7 @@
 package abassawo.c4q.nyc.fe_nyc;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -47,6 +48,8 @@ public class CreateAccount extends ActionBarActivity {
                 else{
                     UserSetUpData DB = new UserSetUpData(mContext);
                     DB.insertInfo(DB, clientname, username, userpass);
+                    //Intent myIntent = new Intent(getApplicationContext(), IncomeGoalForm.class);
+                    //CreateAccount.this.startActivity(myIntent);
                     Toast.makeText(getBaseContext(), getString(R.string.success), Toast.LENGTH_SHORT).show();
                     finish();
                 }
