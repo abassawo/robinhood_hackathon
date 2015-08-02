@@ -19,8 +19,7 @@ public class CreateAccount extends ActionBarActivity {
     String clientname, username, userpass, confpass;
     Context mContext = this;
     @Bind(R.id.clientName) EditText mClientName;
-    @Bind(R.id.userName)
-    EditText mUserName;
+    @Bind(R.id.userName) EditText mUserName;
     @Bind(R.id.password) EditText mPassword;
     @Bind(R.id.confirmPassword) EditText mConfirmPass;
     @Bind(R.id.register) Button mRegister;
