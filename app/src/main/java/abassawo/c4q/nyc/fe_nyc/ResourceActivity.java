@@ -8,7 +8,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -99,14 +98,15 @@ public class ResourceActivity extends ActionBarActivity {
     }
 
     private void updateDisplay(ArrayList<Program> programList) {
-        ArrayAdapter simpleAdapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,programList);
+        ResourceListAdapter simpleAdapter = new ResourceListAdapter(getApplicationContext(),R.layout.item_resource_list,programList);
         mResourceList.setAdapter(simpleAdapter);
     }
 
     private void getCurrentPrograms(String jsonData) throws JSONException{
         ArrayList<Program> programList = new ArrayList<>();
         JSONObject service = new JSONObject(jsonData);
-        JSONArray programsArray = service.getJSONArray("programsArray");
+        JSONArray programsArray = service.getJSONArray("programs");
+        Log.v(TAG, String.valueOf(programsArray));
         for (int n= 0; n <programsArray.length();n++) {
             JSONObject progObject = programsArray.getJSONObject(n);
             Program program = new Program();
@@ -114,6 +114,9 @@ public class ResourceActivity extends ActionBarActivity {
             program.setProviderDescription(progObject.getString("description"));
             program.setWebsite(progObject.getString("website_url"));
             programList.add(program);
+            Log.v(TAG, program.getProviderName());
+            Log.v(TAG, program.getProviderDescription());
+            Log.v(TAG, program.getWebsite());
         }
         updateDisplay(programList);
 

@@ -66,9 +66,6 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new ExpenseFragment();
                 break;
             case 1:
-                fragment = new ResourcesFragment();
-                break;
-            case 2:
                 fragment = new BudgetViewFragment();
                 break;
 

@@ -9,17 +9,6 @@ public class Program {
 private String providerName;
 private String providerDescription;
 private String website;
-private String languageLabel;
-
-
-
-    public String getLanguageLabel() {
-        return languageLabel;
-    }
-
-    public void setLanguageLabel(String languageLabel) {
-        this.languageLabel = languageLabel;
-    }
 
     public String getProviderDescription() {
         return providerDescription;
