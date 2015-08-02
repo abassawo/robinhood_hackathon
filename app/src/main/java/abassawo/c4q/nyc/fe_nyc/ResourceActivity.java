@@ -40,7 +40,6 @@ public class ResourceActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resource);
         ButterKnife.bind(this);
-
         String foodservicesUrl = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/" + 10003 + "/programs?api_key=" + API_KEY + "&serviceTag=food%20pantry";
         getABServices(foodservicesUrl);
 
@@ -100,6 +99,16 @@ public class ResourceActivity extends ActionBarActivity {
     private void updateDisplay(ArrayList<Program> programList) {
         ResourceListAdapter simpleAdapter = new ResourceListAdapter(getApplicationContext(),R.layout.item_resource_list,programList);
         mResourceList.setAdapter(simpleAdapter);
+//        mResourceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent goToWebIntent= new Intent(Intent.ACTION_VIEW);
+//                Program program2 = new Program();
+//                goToWebIntent.setData(Uri.parse(program2.getWebsite()));
+//                startActivity(goToWebIntent);
+//            }
+//        });
+
     }
 
     private void getCurrentPrograms(String jsonData) throws JSONException{

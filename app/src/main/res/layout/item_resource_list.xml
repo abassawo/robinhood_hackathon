@@ -7,7 +7,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/providerDisplay"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
         android:layout_weight="1"/>
 
     <TextView
@@ -15,12 +16,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/descriptionDisplay"
         android:textSize="20sp"
+        android:textColor="#ffffff"
         android:layout_weight="1"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/webDisplay"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
         android:layout_weight="1"/>
 
 </LinearLayout>
