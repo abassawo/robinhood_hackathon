@@ -1,4 +1,12 @@
 <resources>
+
+    <string-array name="language">
+        <item>English</item>
+        <item>Español</item>
+        <item>中文</item>
+    </string-array>
+    <string name="languages">Select Language</string>
+
     <string name="app_name">Fe NYC</string>
 
     <string name="hello_world">Hello world!</string>
@@ -13,20 +21,15 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_register">Register</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="plus_sign_out">Switch Google+ account</string>
     <string name="plus_disconnect">Disconnect from Google+</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string-array name="language">
-        <item>English</item>
-        <item>Español</item>
-        <item>中文</item>
-    </string-array>
-    <string name="languages">Choose Language</string>
+
 
     <!-- String related to Wallet Fragment -->
     <string name="low_cash">Your spending cash is low, click here see solutions in your area</string>
@@ -41,6 +44,7 @@
     <string name="budget_display_title">Sally\'s Recommended Monthly Savings: $320</string>
 
     <string name="log_out">Log Out</string>
+
     <string name="error_title">Opps! Sorry!</string>
     <string name="error_message">"There was an error. Please try again. "</string>
     <string name="error_ok_button_text">OK</string>
@@ -53,4 +57,18 @@
     <string name="Expenses">Expenses</string>
     <string name="Available_Programs">Available Programs</string>
     <string name="title_activity_resource">Resources</string>
+
+    <string name="select_language">Select Language</string>
+    <string name="title_activity_mission">Fe NYC: Mission</string>
+    <string name="mission_statement">Fe NYC is a new platform that helps New Yorkers
+        regain control of their financial freedom. This app empowers low-income individuals and families to build budgeting discipline by creating incentives.
+        Integrated features include convenient access to available New York City services and resources, as well as functionality for connecting bank accounts.
+
+        \n\nOur name is short for Financially Empowering NYC or in Spanish, \"Hope NYC.\"
+
+        Special thanks to the Robin Hood Foundation, Aunt Bertha, the team at Venmo, the entire Coalition for Queens family, and our coding mentors.
+
+        "
+
+</string>
 </resources>

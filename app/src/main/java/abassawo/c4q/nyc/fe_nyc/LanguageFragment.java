@@ -1,5 +1,6 @@
 package abassawo.c4q.nyc.fe_nyc;
 
+
 import android.support.v4.app.Fragment;
 
 
@@ -20,9 +21,14 @@ import android.os.Bundle;
 
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 
 import android.support.annotation.Nullable;
 
@@ -66,4 +72,5 @@ public class LanguageFragment extends Fragment {
 
         return myInflatedView;
     }
+
 }

@@ -13,16 +13,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
 
 public class MainActivity extends AppCompatActivity {
+    @Bind(R.id.zipcodeEditText)
+    EditText zipEdit;
     @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
     private CharSequence mTitle;
     NavigationView navigationView;
     private ActionBarDrawerToggle mDrawerToggle;
+    private static int zip;
 
     private FragmentManager fragmentManager;
 
@@ -56,7 +62,12 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
+
          fragmentManager = getSupportFragmentManager();
+
+//
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
         fragmentManager.beginTransaction()
                 .add(R.id.main_container, new LanguageFragment())
                 .addToBackStack(null) //allows user to press back button and return to previous fragment
@@ -65,10 +76,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitClick(View v){
-        fragmentManager.beginTransaction()
-                .add(R.id.main_container, new BudgetViewFragment())
-                .addToBackStack(null) //allows user to press back button and return to previous fragment
-                .commit();
+        if(zipEdit.getText().equals("")){
+            Toast.makeText(MainActivity.this, "Please enter zipcode", Toast.LENGTH_SHORT).show();
+        } else{
+            zip = Integer.valueOf(zipEdit.getText().toString());
+            fragmentManager.beginTransaction()
+                    .add(R.id.main_container, new BudgetViewFragment())
+                    .addToBackStack(null) //allows user to press back button and return to previous fragment
+                    .commit();
+        }
     }
 
 
@@ -80,22 +96,27 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
-                        if (menuItem.getItemId() == R.id.nav_expense){
+                        if (menuItem.getItemId() == R.id.nav_expense) {
                             fragmentManager.beginTransaction()
                                     .replace(R.id.main_container, new BudgetViewFragment())//allows user to press back button and return to previous fragment
                                     .commit();
-                        } else if(menuItem.getItemId() == R.id.nav_wallet){
+                        } else if (menuItem.getItemId() == R.id.nav_wallet) {
                             fragmentManager.beginTransaction()
                                     .replace(R.id.main_container, new WalletFragment())
                                             //allows user to press back button and return to previous fragment
 
+
                                     .commit();
-                        } else if(menuItem.getItemId() == R.id.nav_resources){
-                            Intent resourceIntent = new Intent(getApplicationContext(),ResourceActivity.class);
+                        } else if (menuItem.getItemId() == R.id.nav_resources) {
+                            Intent resourceIntent = new Intent(getApplicationContext(), ResourceActivity.class);
+                            resourceIntent.putExtra("zip", zip);
                             startActivity(resourceIntent);
-                        } else if((menuItem.getItemId() == R.id.nav_settings)){
+                        } else if ((menuItem.getItemId() == R.id.nav_settings)) {
                             Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
                             startActivity(intent);
+                        } else if (menuItem.getItemId() == R.id.nav_connect) {
+                            Intent intent = new Intent(MainActivity.this, VenmoWebViewActivity.class);
+                            startActivityForResult(intent, 1);
                         }
                         mDrawerLayout.closeDrawers();
                         return true;
@@ -105,19 +126,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void restoreActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
+    public void missionIntent(View v){
+        Intent mission = new Intent(MainActivity.this, MissionActivity.class);
+        startActivity(mission);
     }
 
 
-
-
-
     public boolean onCreateOptionsMenu(Menu menu) {
-
         // Inflate the menu; this adds items to the action bar if it is present.
             getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
@@ -141,56 +156,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 4:
-                mTitle = ("Expenses");
-                break;
-            case 2:
-                mTitle =  ("Budget");
-                break;
-            case 3:
-                mTitle = ("Settings");
-                break;
-            case 1:
-                mTitle = ("Resources");
-                break;
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
 
 
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
-    }
+
+
 
 }
+
+
 
