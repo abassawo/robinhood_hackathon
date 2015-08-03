@@ -52,6 +52,7 @@ public class ResourceActivity extends ActionBarActivity  {
     public static final String TAG = MainActivity.class.getSimpleName();
     private static final String API_KEY = "fb8edd11a14dc07088e183b288c2503c";
     private ActionBarDrawerToggle mDrawerToggle;
+    private String zipParam;
 
 //    @Bind(R.id.resourceListRV) RecyclerView resourceRV;
 @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
@@ -70,9 +71,12 @@ public class ResourceActivity extends ActionBarActivity  {
         actionBar.setLogo(R.drawable.fe_nyc_logo);
         actionBar.setIcon(R.drawable.fe_nyc_logo);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        
 
-        String foodservicesUrl = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/" + 10003 + "/programs?api_key=" + API_KEY + "&serviceTag=food%20pantry";
+            zipParam = "10003";
+
+
+
+        String foodservicesUrl = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/" + zipParam + "/programs?api_key=" + API_KEY + "&serviceTag=food%20pantry";
         getABServices(foodservicesUrl);
 
     }

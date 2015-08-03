@@ -22,13 +22,11 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity {
-    @Bind(R.id.zipcodeEditText)
-    EditText zipEdit;
     @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
     private CharSequence mTitle;
     NavigationView navigationView;
     private ActionBarDrawerToggle mDrawerToggle;
-    private static int zip;
+
 
     private FragmentManager fragmentManager;
 
@@ -75,18 +73,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+
     public void submitClick(View v){
-        if(zipEdit.getText().equals("")){
-            Toast.makeText(MainActivity.this, "Please enter zipcode", Toast.LENGTH_SHORT).show();
-        } else{
-            zip = Integer.valueOf(zipEdit.getText().toString());
             fragmentManager.beginTransaction()
                     .add(R.id.main_container, new BudgetViewFragment())
                     .addToBackStack(null) //allows user to press back button and return to previous fragment
                     .commit();
-        }
-    }
 
+    }
 
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -104,12 +100,10 @@ public class MainActivity extends AppCompatActivity {
                             fragmentManager.beginTransaction()
                                     .replace(R.id.main_container, new WalletFragment())
                                             //allows user to press back button and return to previous fragment
-
-
                                     .commit();
                         } else if (menuItem.getItemId() == R.id.nav_resources) {
                             Intent resourceIntent = new Intent(getApplicationContext(), ResourceActivity.class);
-                            resourceIntent.putExtra("zip", zip);
+                            //resourceIntent.putExtra("zip", zip);
                             startActivity(resourceIntent);
                         } else if ((menuItem.getItemId() == R.id.nav_settings)) {
                             Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
@@ -155,11 +149,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
-
 
 }
 
