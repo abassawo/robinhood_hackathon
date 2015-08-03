@@ -44,6 +44,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.common.SignInButton;
 
@@ -69,8 +70,13 @@ public class LanguageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         final View myInflatedView = inflater.inflate(R.layout.fragment_language, container, false);
+        ButterKnife.bind(this, myInflatedView);
+
+
 
         return myInflatedView;
     }
+
+
 
 }
