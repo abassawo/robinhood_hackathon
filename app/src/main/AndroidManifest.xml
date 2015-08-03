@@ -39,12 +39,15 @@
             android:name=".ResourceActivity"
             android:label="@string/title_activity_resource" >
 
-            android:name=".MissionActivity"
-            android:label="@string/title_activity_mission" >
         </activity>
         <activity
             android:name=".VenmoWebViewActivity"
             android:label="Venmo" >
+
+        </activity>
+        <activity
+            android:name=".MissionActivity"
+            android:label="@string/title_activity_mission" >
 
         </activity>
     </application>

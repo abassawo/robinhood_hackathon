@@ -5,7 +5,7 @@
         <item>Español</item>
         <item>中文</item>
     </string-array>
-    <string name="languages">Select Languages</string>
+    <string name="languages">Select Language</string>
 
     <string name="app_name">Fe NYC</string>
 
@@ -64,7 +64,7 @@
         regain control of their financial freedom. This app empowers low-income individuals and families to build budgeting discipline by creating incentives.
         Integrated features include convenient access to available New York City services and resources, as well as functionality for connecting bank accounts.
 
-        Our name is short for Financially Empowering NYC or in Spanish "Hope NYC"
+        \n\nOur name is short for Financially Empowering NYC or in Spanish, \"Hope NYC.\"
 
         Special thanks to the Robin Hood Foundation, Aunt Bertha, the team at Venmo, the entire Coalition for Queens family, and our coding mentors.
 

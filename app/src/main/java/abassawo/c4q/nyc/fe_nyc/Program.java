@@ -1,13 +1,28 @@
 package abassawo.c4q.nyc.fe_nyc;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
+import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
+
+import java.util.List;
+
 /**
  * Created by c4q-tashasmith on 8/2/15.
  */
-public class Program {
-
+//parent class
+public class Program implements ParentObject {
+    private List<Object> mChildObjectList;
     private String providerName;
     private String providerDescription;
     private String website;
+    private String mParentText;
+
+    public Program(){
+        mParentText = this.getProviderDescription();
+    }
 
     public String getProviderDescription() {
         return providerDescription;
@@ -35,10 +50,31 @@ public class Program {
 
     @Override
     public String toString() {
-        return
-                " Provider Name: " + providerName + '\'' +
-                        " Description: " + providerDescription + '\'' +
-                        " Website: " + website + '\'';
+        return providerName ;
     }
+
+    public String getParentText() {
+        return mParentText;
+    }
+    public void setParentText(String parentText) {
+        mParentText = parentText;
+    }
+
+    public String getBody(){
+        return " Description: " + providerDescription + '\'' +
+                " Website: " + website + '\'';
+    }
+
+    @Override
+    public List<Object> getChildObjectList() {
+        return mChildObjectList;
+    }
+
+    @Override
+    public void setChildObjectList(List<Object> list) {
+        mChildObjectList = list;
+    }
+
+
 
 }

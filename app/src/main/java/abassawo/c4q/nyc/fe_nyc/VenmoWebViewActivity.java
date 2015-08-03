@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 
 
@@ -22,7 +23,7 @@ public class VenmoWebViewActivity extends Activity {
 		super.onCreate(icicle);
 		setContentView(R.layout.venmo_webview);
 
-		mUrl = getIntent().getExtras().getString("url");
+		mUrl = "https://venmo.com/signup";
 		
 		mContext = this;
 		
@@ -45,6 +46,7 @@ public class VenmoWebViewActivity extends Activity {
         	mVenmoWebView.getSettings().setJavaScriptEnabled(true);
         	mVenmoWebView.getSettings().setUserAgentString("venmo-android-2.0");
     		mVenmoWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+			mVenmoWebView.setWebViewClient(new WebViewClient());
         	mVenmoWebView.loadUrl(mUrl);
     	}
 		
