@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -39,15 +41,14 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class ResourceActivity extends ActionBarActivity implements ExpandableProgramAdapter.ExpandCollapseListener {
+public class ResourceActivity extends ActionBarActivity  {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     private static final String API_KEY = "fb8edd11a14dc07088e183b288c2503c";
-    private ExpandableProgramAdapter mExpandableAdapter;
     private ArrayList<Long> mDurationList;
 
 
-    //@Bind(R.id.resourceListRV) RecyclerView resourceRV;
+//    @Bind(R.id.resourceListRV) RecyclerView resourceRV;
     @Bind(R.id.resource_List)
     ListView mResourceList;
     @Override
@@ -66,16 +67,6 @@ public class ResourceActivity extends ActionBarActivity implements ExpandablePro
         String foodservicesUrl = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/" + 10003 + "/programs?api_key=" + API_KEY + "&serviceTag=food%20pantry";
         getABServices(foodservicesUrl);
 
-    }
-
-
-    private ArrayList<Long> generateSpinnerSpeeds() {
-        ArrayList<Long> speedList = new ArrayList<>();
-        speedList.add(mExpandableAdapter.CUSTOM_ANIMATION_DURATION_NOT_SET);
-        for (int i = 1; i <= 10; i++) {
-            speedList.add((long) 100.00 * i);
-        }
-        return speedList;
     }
 
 
@@ -129,19 +120,27 @@ public class ResourceActivity extends ActionBarActivity implements ExpandablePro
         }
     }
 
-    private void updateDisplay(List<Program> programList) {
-        ResourceListAdapter simpleAdapter = new ResourceListAdapter(getApplicationContext(), R.layout.item_resource_list, programList);
+    private void updateDisplay(ArrayList<Program> programList) {
+        //ResourceListAdapter simpleAdapter = new ResourceListAdapter(getApplicationContext(), R.layout.item_resource_list, programList);
+       // mResourceList.setAdapter(simpleAdapter);
+
+        ArrayAdapter simpleAdapter = new ArrayAdapter(getApplicationContext(), R.layout.item_resource_list, programList);
         mResourceList.setAdapter(simpleAdapter);
 
-//        mResourceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+        mResourceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Snackbar snackbar = Snackbar.make(view, "Click for more information", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null);
+                snackbar.show();
+
 //                Intent goToWebIntent= new Intent(Intent.ACTION_VIEW);
 //                Program program2 = new Program();
 //                goToWebIntent.setData(Uri.parse(program2.getWebsite()));
 //                startActivity(goToWebIntent);
-//            }
-//        });
+            }
+        });
 
     }
 
@@ -162,23 +161,9 @@ public class ResourceActivity extends ActionBarActivity implements ExpandablePro
             Log.v(TAG, program.getProviderDescription());
             Log.v(TAG, program.getWebsite());
         }
-//        resourceRV.setHasFixedSize(false);
-//        LinearLayoutManager llm = new LinearLayoutManager(this);
-//        llm.setOrientation(LinearLayoutManager.VERTICAL);
-//        resourceRV.setLayoutManager(llm);
-//        mDurationList = generateSpinnerSpeeds();
+//        ResAdapter resourceAdapter = new ResAdapter(programList);
+//        resourceRV.setAdapter(resourceAdapter);
 
-//        mExpandableAdapter = new ExpandableProgramAdapter(ResourceActivity.this, parentList);
-//        Log.d("abass test",String.valueOf(mExpandableAdapter.getItemCount()));
-//
-//        // Attach this activity to the Adapter as the ExpandCollapseListener
-//        mExpandableAdapter.addExpandCollapseListener(ResourceActivity.this);
-//
-//        resourceRV.setAdapter(mExpandableAdapter);
-//        // Set the layout manager to a LinearLayout manager for vertical list
-//        resourceRV.setLayoutManager(new LinearLayoutManager(ResourceActivity.this));
-//
-//        resourceRV.setAdapter(mExpandableAdapter);
         updateDisplay(programList);
     }
 
@@ -200,13 +185,5 @@ public class ResourceActivity extends ActionBarActivity implements ExpandablePro
         dialog.show(getFragmentManager(), "error_dialog");
     }
 
-    @Override
-    public void onRecyclerViewItemExpanded(int position) {
 
-    }
-
-    @Override
-    public void onRecyclerViewItemCollapsed(int position) {
-
-    }
 }

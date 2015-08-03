@@ -13,7 +13,7 @@ import java.util.List;
  * Created by c4q-tashasmith on 8/2/15.
  */
 public class ResourceListAdapter extends ArrayAdapter<Program> {
-    public ResourceListAdapter(Context context, int resource, List<Program> programs) {
+    public ResourceListAdapter(Context context, int resource,  ArrayList<Program> programs) {
         super(context, resource, programs);
     }
 

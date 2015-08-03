@@ -20,9 +20,6 @@ public class Program implements ParentObject {
     private String website;
     private String mParentText;
 
-    public Program(){
-        mParentText = this.getProviderDescription();
-    }
 
     public String getProviderDescription() {
         return providerDescription;

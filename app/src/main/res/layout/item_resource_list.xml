@@ -9,24 +9,33 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/recycler_item_number_parent"
-            android:background="@color/background_floating_material_light"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/white"
-            android:textSize="14dp"/>/>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/providerDisplay"
+                android:textSize="25sp"
+                android:textColor="#ffffff"
+              android:layout_weight="1"/>
         <TextView
-            android:id="@+id/providerDisplay"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.SearchResult.Subtitle"
-            android:gravity="center_vertical"
-            android:textSize="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp" />
+            android:visibility="gone"
+            android:id="@+id/descriptionDisplay"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/webDisplay"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:textColor="#ffffff"
+            android:layout_weight="1"/>
+        
+
 
         <ImageView
             android:id="@+id/recycler_item_arrow_parent"
