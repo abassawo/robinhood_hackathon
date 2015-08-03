@@ -90,8 +90,7 @@
     <ListView
         android:id="@+id/resource_List"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@drawable/list_border"></ListView>
+        android:layout_height="wrap_content"></ListView>
 
 </LinearLayout>
 

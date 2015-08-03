@@ -66,7 +66,7 @@ public class ResourceActivity extends ActionBarActivity  {
         ButterKnife.bind(this);
         final ActionBar actionBar = getSupportActionBar();
         actionBar.isHideOnContentScrollEnabled();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        //actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionBar.setTitle(getString(R.string.app_name));
         actionBar.setLogo(R.drawable.fe_nyc_logo);
         actionBar.setIcon(R.drawable.fe_nyc_logo);
@@ -196,6 +196,5 @@ public class ResourceActivity extends ActionBarActivity  {
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getFragmentManager(), "error_dialog");
     }
-
 
 }
