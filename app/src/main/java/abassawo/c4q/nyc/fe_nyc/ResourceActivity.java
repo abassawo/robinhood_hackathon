@@ -7,9 +7,11 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
@@ -49,10 +51,10 @@ public class ResourceActivity extends ActionBarActivity  {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     private static final String API_KEY = "fb8edd11a14dc07088e183b288c2503c";
-    private ArrayList<Long> mDurationList;
-
+    private ActionBarDrawerToggle mDrawerToggle;
 
 //    @Bind(R.id.resourceListRV) RecyclerView resourceRV;
+@Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
     @Bind(R.id.resource_List)
     ListView mResourceList;
 
@@ -69,6 +71,7 @@ public class ResourceActivity extends ActionBarActivity  {
         actionBar.setIcon(R.drawable.fe_nyc_logo);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+    
         String foodservicesUrl = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/" + 10003 + "/programs?api_key=" + API_KEY + "&serviceTag=food%20pantry";
         getABServices(foodservicesUrl);
 
