@@ -56,12 +56,19 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .add(R.id.main_container, new LoginFragment())
+                .add(R.id.main_container, new LanguageFragment())
                 .addToBackStack(null) //allows user to press back button and return to previous fragment
                 .commit();
 
+    }
+
+    public void submitClick(View v){
+        fragmentManager.beginTransaction()
+                .add(R.id.main_container, new BudgetViewFragment())
+                .addToBackStack(null) //allows user to press back button and return to previous fragment
+                .commit();
     }
 
 
@@ -73,20 +80,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
-                        if (menuItem.getItemId() == R.id.nav_wallet){
+                        if (menuItem.getItemId() == R.id.nav_expense){
                             fragmentManager.beginTransaction()
-                                    .replace(R.id.main_container, new WalletFragment())//allows user to press back button and return to previous fragment
+                                    .replace(R.id.main_container, new BudgetViewFragment())//allows user to press back button and return to previous fragment
                                     .commit();
-                        } else if(menuItem.getItemId() == R.id.nav_expense){
+                        } else if(menuItem.getItemId() == R.id.nav_wallet){
                             fragmentManager.beginTransaction()
-                                    .replace(R.id.main_container, new ExpenseFragment())
-                                //allows user to press back button and return to previous fragment
+                                    .replace(R.id.main_container, new WalletFragment())
+                                            //allows user to press back button and return to previous fragment
 
                                     .commit();
                         } else if(menuItem.getItemId() == R.id.nav_resources){
-                            fragmentManager.beginTransaction()
-                                    .replace(R.id.main_container, new ResourcesFragment())//allows user to press back button and return to previous fragment
-                                    .commit();
+                            Intent resourceIntent = new Intent(getApplicationContext(),ResourceActivity.class);
+                            startActivity(resourceIntent);
                         } else if((menuItem.getItemId() == R.id.nav_settings)){
                             Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
                             startActivity(intent);

@@ -16,9 +16,9 @@
 
     <application
         android:allowBackup="true"
-        android:logo="@drawable/fe_nyc_logo"
         android:icon="@drawable/fe_nyc_logo"
         android:label="@string/app_name"
+        android:logo="@drawable/fe_nyc_logo"
         android:theme="@style/Theme.Fe" >
         <activity
             android:name=".MainActivity"
@@ -33,10 +33,10 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
-
-
-
-
+        <activity
+            android:name=".ResourceActivity"
+            android:label="@string/title_activity_resource" >
+        </activity>
     </application>
 
 </manifest>

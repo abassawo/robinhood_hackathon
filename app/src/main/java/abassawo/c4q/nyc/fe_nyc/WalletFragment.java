@@ -1,5 +1,6 @@
 package abassawo.c4q.nyc.fe_nyc;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.annotation.Nullable;
@@ -16,7 +17,7 @@ import android.widget.TextView;
 public class WalletFragment extends Fragment {
     String strCash;
     boolean addCash;
-    double cashInWallet, transactionCash, savings, monthlyWallet = 300;
+    double cashInWallet = 300, transactionCash, savings, monthlyWallet = 300;
     Button add, minus, calculate;
     ImageView tree;
     TextView cashDisplay, warning;
@@ -53,6 +54,14 @@ public class WalletFragment extends Fragment {
                 enterAmount.setVisibility(View.VISIBLE);
                 calculate.setVisibility(View.VISIBLE);
                 addCash = true;
+            }
+        });
+
+        warning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ResourceActivity.class);
+                startActivity(intent);
             }
         });
 

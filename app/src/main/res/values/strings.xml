@@ -21,19 +21,36 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-
+    <string-array name="language">
+        <item>English</item>
+        <item>Español</item>
+        <item>中文</item>
+    </string-array>
+    <string name="languages">Choose Language</string>
 
     <!-- String related to Wallet Fragment -->
-    <string name="low_cash">Your spending cash is low, click on resources tab to learn money saving opportunities</string>
+    <string name="low_cash">Your spending cash is low, click here see solutions in your area</string>
     <string name="monthly_wallet_fragment">Monthly Wallet</string>
     <string name="cash_amount">$175</string>
     <string name="minus_text">Subtract from Wallet</string>
     <string name="add_text">Add to Wallet</string>
 
     <!-- String related to Budget Display Fragment -->
-    <string name="goal_progress">Your Goal Progress: 0%</string>
+    <string name="goal_progress">Goal Progress: 0%</string>
     <string name="you_are_here">You Are Here</string>
-    <string name="budget_display_title">Your Recommended Monthly Savings: $320</string>
+    <string name="budget_display_title">Sally\'s Recommended Monthly Savings: $320</string>
 
     <string name="log_out">Log Out</string>
+    <string name="error_title">Opps! Sorry!</string>
+    <string name="error_message">"There was an error. Please try again. "</string>
+    <string name="error_ok_button_text">OK</string>
+    <string name="network_unavailable_message">Network is unavailable</string>
+
+    <!-- String related to Navigation Drawer -->
+    <string name="Resources">Resources</string>
+    <string name="Settings">Settings</string>
+    <string name="Budget">Budget</string>
+    <string name="Expenses">Expenses</string>
+    <string name="Available_Programs">Available Programs</string>
+    <string name="title_activity_resource">Resources</string>
 </resources>

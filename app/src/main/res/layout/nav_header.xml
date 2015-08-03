@@ -5,6 +5,7 @@
     android:layout_height="178dp"
     android:background="@drawable/moneytrees"
     android:orientation="vertical"
+    android:layout_marginTop="100dp"
     android:weightSum="1">
 
     <LinearLayout
