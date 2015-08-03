@@ -65,3 +65,6 @@ Your hack will be judged based on these 4 criteria:
 
 ### Submission Details  
 Please fork this repo for your own projects this weekend so we can easily find them on Monday.  (Note: this was initialized with a .gitignore that you may need to change).  
+
+https://github.com/abassawo/robinhood_hackathon.git   
+
