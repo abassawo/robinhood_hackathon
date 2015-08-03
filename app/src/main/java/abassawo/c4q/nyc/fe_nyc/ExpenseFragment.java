@@ -67,7 +67,7 @@ public class ExpenseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View myInflatedView = inflater.inflate(R.layout.fragment_resources, container, false);
+        final View myInflatedView = inflater.inflate(R.layout.fragment_expense, container, false);
 
         return myInflatedView;
     }

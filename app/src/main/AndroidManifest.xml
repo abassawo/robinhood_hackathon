@@ -35,17 +35,17 @@
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-<<<<<<< HEAD
+
             android:name=".ResourceActivity"
             android:label="@string/title_activity_resource" >
-=======
+
             android:name=".MissionActivity"
             android:label="@string/title_activity_mission" >
         </activity>
         <activity
             android:name=".VenmoWebViewActivity"
             android:label="Venmo" >
->>>>>>> abass merging
+
         </activity>
     </application>
 

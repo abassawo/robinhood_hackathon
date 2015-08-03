@@ -29,12 +29,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string-array name="language">
-        <item>English</item>
-        <item>Español</item>
-        <item>中文</item>
-    </string-array>
-    <string name="languages">Choose Language</string>
+
 
     <!-- String related to Wallet Fragment -->
     <string name="low_cash">Your spending cash is low, click here see solutions in your area</string>
@@ -49,7 +44,7 @@
     <string name="budget_display_title">Sally\'s Recommended Monthly Savings: $320</string>
 
     <string name="log_out">Log Out</string>
-<<<<<<< HEAD
+
     <string name="error_title">Opps! Sorry!</string>
     <string name="error_message">"There was an error. Please try again. "</string>
     <string name="error_ok_button_text">OK</string>
@@ -62,7 +57,7 @@
     <string name="Expenses">Expenses</string>
     <string name="Available_Programs">Available Programs</string>
     <string name="title_activity_resource">Resources</string>
-=======
+
     <string name="select_language">Select Language</string>
     <string name="title_activity_mission">Fe NYC: Mission</string>
     <string name="mission_statement">Fe NYC is a new platform that helps New Yorkers
@@ -76,5 +71,4 @@
         "
 
 </string>
->>>>>>> abass merging
 </resources>

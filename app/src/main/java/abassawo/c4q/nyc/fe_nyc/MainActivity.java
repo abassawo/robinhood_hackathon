@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     private ActionBarDrawerToggle mDrawerToggle;
 
-    private FragmentManager fragmentManager{}
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,50 +85,31 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
-
                         if (menuItem.getItemId() == R.id.nav_expense){
-
-                        if (menuItem.getItemId() == R.id.nav_wallet) {
-
                             fragmentManager.beginTransaction()
                                     .replace(R.id.main_container, new BudgetViewFragment())//allows user to press back button and return to previous fragment
                                     .commit();
-
                         } else if(menuItem.getItemId() == R.id.nav_wallet){
                             fragmentManager.beginTransaction()
                                     .replace(R.id.main_container, new WalletFragment())
                                             //allows user to press back button and return to previous fragment
+
 
                                     .commit();
                         } else if(menuItem.getItemId() == R.id.nav_resources){
                             Intent resourceIntent = new Intent(getApplicationContext(),ResourceActivity.class);
                             startActivity(resourceIntent);
                         } else if((menuItem.getItemId() == R.id.nav_settings)){
-                        } else if (menuItem.getItemId() == R.id.nav_expense) {
-                            fragmentManager.beginTransaction().replace(R.id.main_container, new ExpenseFragment())
-                                    //allows user to press back button and return to previous fragment
-
-                                    .commit();
-                        } else if (menuItem.getItemId() == R.id.nav_resources) {
-                            fragmentManager.beginTransaction()
-                                    .replace(R.id.main_container, new ResourcesFragment())//allows user to press back button and return to previous fragment
-                                    .commit();
-                        } else if ((menuItem.getItemId() == R.id.nav_settings)) {
-
                             Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
                             startActivity(intent);
-                        } else if (menuItem.getItemId() == R.id.nav_connect) {
+                        }else if (menuItem.getItemId() == R.id.nav_connect) {
                             Intent intent = new Intent(MainActivity.this, VenmoWebViewActivity.class);
                             startActivityForResult(intent, 1);
-                            mDrawerLayout.closeDrawers();
-
                         }
+                        mDrawerLayout.closeDrawers();
                         return true;
                     }
                 });
-                }
-
-
     }
 
 
