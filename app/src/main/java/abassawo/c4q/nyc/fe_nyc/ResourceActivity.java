@@ -17,9 +17,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
@@ -51,6 +55,7 @@ public class ResourceActivity extends ActionBarActivity  {
 //    @Bind(R.id.resourceListRV) RecyclerView resourceRV;
     @Bind(R.id.resource_List)
     ListView mResourceList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,24 +126,27 @@ public class ResourceActivity extends ActionBarActivity  {
     }
 
     private void updateDisplay(ArrayList<Program> programList) {
-        //ResourceListAdapter simpleAdapter = new ResourceListAdapter(getApplicationContext(), R.layout.item_resource_list, programList);
-       // mResourceList.setAdapter(simpleAdapter);
-
-        ArrayAdapter simpleAdapter = new ArrayAdapter(getApplicationContext(), R.layout.item_resource_list, programList);
+        ResourceListAdapter simpleAdapter = new ResourceListAdapter(getApplicationContext(), R.layout.item_resource_list, programList);
         mResourceList.setAdapter(simpleAdapter);
-
 
         mResourceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Snackbar snackbar = Snackbar.make(view, "Click for more information", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null);
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                final Program program2 =  (Program) (mResourceList.getItemAtPosition(position));
+
+                Snackbar snackbar = Snackbar.make(view,program2.getProviderDescription(), Snackbar.LENGTH_LONG)
+                        .setAction("->", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent goToWebIntent= new Intent(Intent.ACTION_VIEW);
+                                goToWebIntent.setData(Uri.parse(program2.getWebsite()));
+                           startActivity(goToWebIntent);
+                            }
+                        });
+
                 snackbar.show();
 
-//                Intent goToWebIntent= new Intent(Intent.ACTION_VIEW);
-//                Program program2 = new Program();
-//                goToWebIntent.setData(Uri.parse(program2.getWebsite()));
-//                startActivity(goToWebIntent);
+
             }
         });
 
@@ -146,7 +154,6 @@ public class ResourceActivity extends ActionBarActivity  {
 
     private void getCurrentPrograms(String jsonData) throws JSONException {
         ArrayList<Program> programList = new ArrayList<>();
-        List<ParentObject> parentList = (List) programList;
         JSONObject service = new JSONObject(jsonData);
         JSONArray programsArray = service.getJSONArray("programs");
         Log.v(TAG, String.valueOf(programsArray));
@@ -161,8 +168,6 @@ public class ResourceActivity extends ActionBarActivity  {
             Log.v(TAG, program.getProviderDescription());
             Log.v(TAG, program.getWebsite());
         }
-//        ResAdapter resourceAdapter = new ResAdapter(programList);
-//        resourceRV.setAdapter(resourceAdapter);
 
         updateDisplay(programList);
     }

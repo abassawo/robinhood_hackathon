@@ -13,8 +13,27 @@ import java.util.List;
  * Created by c4q-tashasmith on 8/2/15.
  */
 public class ResourceListAdapter extends ArrayAdapter<Program> {
+    private  ArrayList<Program> programs;
+
     public ResourceListAdapter(Context context, int resource,  ArrayList<Program> programs) {
         super(context, resource, programs);
+        this.programs = programs;
+
+    }
+
+    @Override
+    public Program getItem(int position) {
+        return programs.get(position);
+    }
+
+    @Override
+    public int getPosition(Program item) {
+        return programs.indexOf(item);
+    }
+
+    @Override
+    public int getCount() {
+        return programs.size();
     }
 
     @Override
@@ -26,12 +45,12 @@ public class ResourceListAdapter extends ArrayAdapter<Program> {
         }
 
         TextView providerDisplay = (TextView) convertView.findViewById(R.id.providerDisplay);
-        //TextView descriptionDisplay = (TextView) convertView.findViewById(R.id.descriptionDisplay);
-        //TextView webDisplay = (TextView) convertView.findViewById(R.id.webDisplay);
+        TextView descriptionDisplay = (TextView) convertView.findViewById(R.id.descriptionDisplay);
+        TextView webDisplay = (TextView) convertView.findViewById(R.id.webDisplay);
 
         providerDisplay.setText(program.getProviderName());
-        //descriptionDisplay.setText(program.getProviderDescription());
-//        webDisplay.setText(program.getWebsite());
+        descriptionDisplay.setText(program.getProviderDescription());
+        webDisplay.setText(program.getWebsite());
 
         return convertView;
 
