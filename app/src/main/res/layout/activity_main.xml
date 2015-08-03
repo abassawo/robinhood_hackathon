@@ -9,6 +9,7 @@
     android:fitsSystemWindows="true">
 
 
+<<<<<<< HEAD
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,8 +22,16 @@
         android:id="@+id/main_container">
     </FrameLayout>
 
+=======
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_container">
+        </FrameLayout>
 
-    </RelativeLayout>
+
+>>>>>>> abass merging
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:src="@drawable/moneytrees"
@@ -35,3 +44,4 @@
 
 
 </android.support.v4.widget.DrawerLayout>
+

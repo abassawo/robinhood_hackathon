@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     private ActionBarDrawerToggle mDrawerToggle;
 
-    private FragmentManager fragmentManager;
+    private FragmentManager fragmentManager{}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,12 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
+
          fragmentManager = getSupportFragmentManager();
+
+//
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
         fragmentManager.beginTransaction()
                 .add(R.id.main_container, new LanguageFragment())
                 .addToBackStack(null) //allows user to press back button and return to previous fragment
@@ -80,10 +85,15 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
+
                         if (menuItem.getItemId() == R.id.nav_expense){
+
+                        if (menuItem.getItemId() == R.id.nav_wallet) {
+
                             fragmentManager.beginTransaction()
                                     .replace(R.id.main_container, new BudgetViewFragment())//allows user to press back button and return to previous fragment
                                     .commit();
+
                         } else if(menuItem.getItemId() == R.id.nav_wallet){
                             fragmentManager.beginTransaction()
                                     .replace(R.id.main_container, new WalletFragment())
@@ -94,13 +104,31 @@ public class MainActivity extends AppCompatActivity {
                             Intent resourceIntent = new Intent(getApplicationContext(),ResourceActivity.class);
                             startActivity(resourceIntent);
                         } else if((menuItem.getItemId() == R.id.nav_settings)){
+                        } else if (menuItem.getItemId() == R.id.nav_expense) {
+                            fragmentManager.beginTransaction().replace(R.id.main_container, new ExpenseFragment())
+                                    //allows user to press back button and return to previous fragment
+
+                                    .commit();
+                        } else if (menuItem.getItemId() == R.id.nav_resources) {
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.main_container, new ResourcesFragment())//allows user to press back button and return to previous fragment
+                                    .commit();
+                        } else if ((menuItem.getItemId() == R.id.nav_settings)) {
+
                             Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
                             startActivity(intent);
+                        } else if (menuItem.getItemId() == R.id.nav_connect) {
+                            Intent intent = new Intent(MainActivity.this, VenmoWebViewActivity.class);
+                            startActivityForResult(intent, 1);
+                            mDrawerLayout.closeDrawers();
+
                         }
-                        mDrawerLayout.closeDrawers();
                         return true;
                     }
                 });
+                }
+
+
     }
 
 
@@ -112,8 +140,12 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setTitle(mTitle);
     }
 
-
-
+    public void missionIntent(View v){
+        //setContentView(R.layout.fragment_mission);
+       //fragmentManager.beginTransaction().replace(R.id.main_container, new MissionFragment()).addToBackStack(null).commit();
+        Intent mission = new Intent(MainActivity.this, MissionActivity.class);
+        startActivity(mission);
+    }
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -190,6 +222,8 @@ public class MainActivity extends AppCompatActivity {
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+
+
     }
 
 }

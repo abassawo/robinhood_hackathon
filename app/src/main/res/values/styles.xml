@@ -9,8 +9,7 @@
 
     <style name="Theme.Fe" parent="Base.Theme.DesignDemo">
     </style>
-
-
+    
     <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">#8BC34A</item>
         <item name="colorPrimaryDark">#689F38</item>
