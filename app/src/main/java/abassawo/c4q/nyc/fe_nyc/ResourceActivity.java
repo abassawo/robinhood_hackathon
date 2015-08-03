@@ -70,8 +70,8 @@ public class ResourceActivity extends ActionBarActivity  {
         actionBar.setLogo(R.drawable.fe_nyc_logo);
         actionBar.setIcon(R.drawable.fe_nyc_logo);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        
 
-    
         String foodservicesUrl = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/" + 10003 + "/programs?api_key=" + API_KEY + "&serviceTag=food%20pantry";
         getABServices(foodservicesUrl);
 
